@@ -1,2 +1,1 @@
-# FireFighter
-A Hyper Casual Game
+# Firefighter
