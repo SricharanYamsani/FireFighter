@@ -22,6 +22,15 @@ public class Bullet : MonoBehaviour {
         if (collision.gameObject.tag == "Fire")
         {
             Destroy(collision.gameObject);
+            Destroy(this.gameObject);
+        }
+
+        if(collision.gameObject.tag == "Building")
+        {
+            Destroy(this.gameObject);
+            FireSpawner.fireCount--;
+            Debug.Log(FireSpawner.fireCount);
+            Destroy(collision.transform.GetChild(collision.transform.childCount - 1).gameObject);
         }
     }
 }

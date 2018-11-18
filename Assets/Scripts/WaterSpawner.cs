@@ -11,7 +11,7 @@ public class WaterSpawner : MonoBehaviour {
     SpriteRenderer watersr;
     BoxCollider2D watercol;
 
-    float SpawnRate = 2.0f;
+    float SpawnRate = 5.0f;
     float TimeForNextSpawn;
 
     float radius;
@@ -49,6 +49,7 @@ public class WaterSpawner : MonoBehaviour {
 
             water.transform.localEulerAngles = new Vector3(0, 0, -toggle * 90 + angle);
 
+            Destroy(water.gameObject, 5f);
             TimeForNextSpawn = Time.time + SpawnRate;
         }
     }

@@ -81,6 +81,10 @@ public class Player : MonoBehaviour {
         //vel = 7f;
         //accel = -16f;
         TimeForNextSpawn = 0f;
+
+        healthText.text = "Health : " + health.ToString();
+        ammoText.text = "Ammo : " + ammo.ToString();
+
     }
 	
 	void Update () {
@@ -93,6 +97,8 @@ public class Player : MonoBehaviour {
         {
             Shoot();
             ammo--;
+            ammoText.text = "Ammo : " + ammo.ToString();
+
         }
 
         if (IsDead)
@@ -137,9 +143,13 @@ public class Player : MonoBehaviour {
             Destroy(collision.gameObject);
             Debug.Log("Fire");
             health--;
+            healthText.text = "Health : " + health.ToString();
 
             if (health == 0)
+            {
+                gameObject.SetActive(false);
                 IsDead = true;
+            }
         }
         if (collision.gameObject.tag == "Water")
         {
@@ -147,6 +157,8 @@ public class Player : MonoBehaviour {
 
             Debug.Log("Water");
             AddAmmo();
+            ammoText.text = "Ammo : " + ammo.ToString();
+
         }
     }
 

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Fire
   - Water
+  - Building
   layers:
   - Default
   - TransparentFX
